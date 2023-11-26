@@ -19,16 +19,16 @@ class LoginPage {
     return $('button[type="submit"]');
   }
 
-  typeUsername(username) {
-    return this.usernameInputField.setValue(username);
+  async typeUsername(username) {
+    await this.usernameInputField.setValue(username);
   }
 
-  typePassword(password) {
-    return this.passwordInputField.setValue(password);
+  async typePassword(password) {
+    await this.passwordInputField.setValue(password);
   }
 
-  clickLoginButton() {
-    return this.loginButton.click();
+  async clickLoginButton() {
+    await this.loginButton.click();
   }
 
 async loginAsUser(user) {

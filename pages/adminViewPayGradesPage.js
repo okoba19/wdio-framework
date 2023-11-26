@@ -1,3 +1,4 @@
+const { assert } = require("chai");
 const BasePage = require("./basePage");
 
 class AdminViewPayGrades extends BasePage {
@@ -12,6 +13,15 @@ class AdminViewPayGrades extends BasePage {
 
      async clickAddButton() {
         await this.addButton.click();
+     }
+
+     async removeSpecificPayGrade(payGradeName) {
+        await $(`//div[text()='${payGradeName}']/../..//button`).click();
+     }
+
+     async verifySpecificPayGradeCurrencyFieldIsEmpty(payGradeName) {
+      const actualCurrencieValue = await $(`//div[text()='${payGradeName}']/../../div[3]`).getText();
+      assert.strictEqual(actualCurrencieValue, '', 'The currencie should not contain any text');
      }
 
 }
